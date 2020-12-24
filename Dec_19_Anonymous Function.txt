@@ -1,0 +1,162 @@
+console.log("Anonymous Function")
+console.log("")
+
+
+//odd numbers in Array
+
+var oddnumber=function(arr){
+   var result= arr.filter((item,index,arr)=>{
+        return item%2!==0
+    })
+    return result
+}
+console.log("Q1. Print odd numbers in an array ")
+console.log(oddnumber([1,2,3,4,5]))
+console.log("")
+
+
+//convert all string to CAPS
+
+var capitalString=function(strArray){
+    var stringResult=strArray.map((item)=>
+    {
+        return item.toUpperCase();
+    })
+    return stringResult
+}
+console.log("Q2. Convert all the strings to title caps in a string array ")
+console.log(capitalString(['check','string','caps']))
+console.log("")
+
+//sum of all number in Array
+
+var sumOfNumber=function(numberArray){
+     var numberResult= numberArray.reduce((acc,current)=>
+      {
+          return acc+current
+      })   
+      return numberResult
+}
+
+console.log("Q3.Sum of all numbers in an array ")
+console.log(sumOfNumber([1,2,3,4,5]))
+console.log("")
+
+
+//prime number in Array
+
+var primeNumArray=function(PrimeArr){
+    var primeresult=PrimeArr.filter((item)=>
+    {
+        let check=false;
+        for(let i=2;i<=Math.sqrt(item);i++)
+        {
+            if(item%i===0)
+            {
+                check=true;
+            }
+        }
+        if(check===false)
+        {
+            return item
+        }
+    })
+    return primeresult
+    
+}
+
+console.log("Q4.Return all the prime numbers in an array ")
+console.log(primeNumArray([1,2,4,7,6,9,11]))
+console.log("")
+
+
+//Palindrom in Array
+
+var PalindromArray=function(palindromArr){
+  var palindResult=palindromArr.filter((item)=>
+  {
+      var reverseItem= item.toLowerCase().split('').reverse().join('')
+      if(item===reverseItem)
+      {
+          return item
+      }
+  })
+  return palindResult
+}
+
+console.log("Q5.Return all the palindromes in an array ")
+console.log(PalindromArray(['madam','owl','malayalam','check']))
+console.log("")
+
+
+//median of two Array
+
+var medianArray=function(arr1,arr2){
+    
+      arr2.map((item)=>{
+            arr1.push(item)
+        })         
+    var sortedArray=arr1.sort()
+    var arrayLength=sortedArray.length
+    var median=((arr1[(arrayLength/2)-1]+arr1[arrayLength/2])/2)
+    return median
+    
+}
+
+console.log("Q6.Return median of two sorted arrays of same size ")
+console.log(medianArray([1,5,3],[9,2,6]))
+console.log("")
+
+//Remove duplicates from Array
+
+var duplicateArray=function(dupArr){
+    var finalArray=[]
+   dupArr.filter((item,index,dupArr)=>{
+        if(index===0)
+        {
+            finalArray.push(item)
+        }
+        else{
+            var result=finalArray.includes(item)
+            if(result===false)
+            {
+                finalArray.push(item)
+            }
+        }
+    })
+    return finalArray
+}
+console.log("Q7.Remove duplicates from an array")
+console.log(duplicateArray(['a','a','b','d','c','d']))
+console.log("")
+
+
+//Rotate array by k time and return rotated array
+var rotateArray=function(rotateArr,k)
+{
+    while(k>0)
+    {
+        var temp;
+        for(var i=(rotateArr.length)-1;i>=0;i--)
+        {
+           if(i==rotateArr.length-1)
+           {
+               temp=rotateArr[i]
+           }
+          else if(i==0)
+           {
+              rotateArr[i+1]=rotateArr[i]
+               rotateArr[i]=temp
+           }
+           else
+           {
+               rotateArr[i+1]=rotateArr[i]
+           }
+        }
+        k--
+    }
+    return rotateArr
+}
+console.log("Q8.Rotate an array by k times and return the rotated array")
+console.log(rotateArray([1,2,3,4,5,6,7],2))
+console.log("")
